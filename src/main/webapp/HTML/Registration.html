@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HolyMusic - Registration</title>
+  <link rel="stylesheet" type="text/css" media="all" href="../CSS/myStyle.css"/>
+  <script src="../JavaScript/Utils.js" charset="utf-8" defer></script>
+  <script src="../JavaScript/Registration.js" charset="utf-8" defer></script>
+  <link rel="shortcut icon" href="../Images/MusicalNote.jpg" />
+</head>
+
+<body>
+
+<div class="auth-container">
+  <h1>Create Your Account</h1>
+  <p>Fill the fields below to create a new account.</p>
+
+  <form action="#" method="POST">
+    <fieldset>
+      <div>
+        <label for="userReg">Username</label>
+        <input type="text" id="userReg" name="userReg" required/>
+      </div>
+      <div>
+        <label for="firstNameReg">First Name</label>
+        <input type="text" id="firstNameReg" name="firstNameReg" required/>
+      </div>
+      <div>
+        <label for="lastNameReg">Last Name</label>
+        <input type="text" id="lastNameReg" name="lastNameReg" required/>
+      </div>
+      <div>
+        <label for="passwordReg">Password</label>
+        <input type="password" id="passwordReg" name="passwordReg" required/>
+      </div>
+      <input type="button" id="registrationButton" value="Sign Up"/>
+      <p class="error" id="error"></p>
+    </fieldset>
+  </form>
+
+  <div class="auth-switch">
+    Already have an account? <a href="Login.html">Log In</a>
+  </div>
+</div>
+
+</body>
+</html>

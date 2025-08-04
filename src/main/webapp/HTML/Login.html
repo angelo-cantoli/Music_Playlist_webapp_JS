@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>HolyMusic - Login</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" type="text/css" media="all" href="../CSS/myStyle.css"/>
+
+  <script src="../JavaScript/Utils.js" charset="utf-8" defer></script>
+  <script src="../JavaScript/Login.js" charset="utf-8" defer></script>
+  <link rel="shortcut icon" href="../Images/MusicalNote.jpg" />
+</head>
+
+<body>
+
+<div class="auth-container">
+  <h1>Login to HolyMusic</h1>
+  <p>Enter your credentials to access your account.</p>
+
+  <form action="#">
+    <fieldset>
+      <div>
+        <label for="user">Username</label>
+        <input type="text" id="user" name="user" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <input type="button" id="loginButton" value="Login">
+      <p class="error" id="error"></p>
+    </fieldset>
+  </form>
+
+  <div class="auth-switch">
+    Don't have an account? <a href="Registration.html">Sign Up</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> Home </title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" type="text/css" media="all" href="../CSS/myStyle.css" />
+
+  <script src="../JavaScript/Utils.js"             charset="utf-8" defer></script>
+  <script src="../JavaScript/PlaylistManager.js"   charset="utf-8" defer></script>
+  <script src="../JavaScript/CreatePlaylist.js"    charset="utf-8" defer></script>
+  <script src="../JavaScript/CreateSong.js"        charset="utf-8" defer></script>
+  <script src="../JavaScript/ConfirmNewSorting.js" charset="utf-8" defer></script>
+  <script src="../JavaScript/D&Dsorting.js"        charset="utf-8" defer></script>
+
+  <link rel="shortcut icon" href="../Images/MusicalNote.jpg" />
+</head>
+
+<body>
+<header class="main-header">
+  <div class="header-content">
+    <h1>HolyMusic</h1>
+    <div class="user-info-header">
+      <span class="welcome-message">Nice to see you again, <span id="userName"></span></span>
+      <div class="logout">
+        <a href="../Logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page-section active-section" id="homePage">
+  <div class="home-columns-container">
+    <div class="home-column playlist-management-column">
+      <h3>Your Playlists</h3>
+      <table class="playlistTable" id="playlistTable">
+        <thead>
+        <tr>
+          <th>PlayList name</th>
+          <th>Creation date</th>
+        </tr>
+        </thead>
+        <tbody id="playlistTableBody">
+        </tbody>
+      </table>
+      <p id="playListTableMessage"></p>
+      <p class="error" id="playlistTableError"></p>
+
+      <fieldset class="createPlaylistField">
+        <legend>Create a New Playlist</legend>
+        <form action="#">
+          <p>Title: <input type="text" id="name" name="name" required></p>
+          
+          <div>
+            <p>Select songs to add (optional):</p>
+            <div id="playlistSongSelectionContainer">
+            </div>
+            <p id="playlistSongSelectionMessage">Loading songs...</p>
+          </div>
+          
+          <p><input type="button" id="createPlaylistButton" value="Create Playlist"></p>
+          <p class="error" id="createPlaylistError"></p>
+        </form>
+      </fieldset>
+    </div>
+
+    <div class="home-column song-creation-column">
+      <h3>Add a New Song</h3>
+      <fieldset class="createSongField">
+        <legend>Song Details</legend>
+        <form action="#">
+          <p>Title: <input type="text" id="title" name="title" required></p>
+          <p>Genre: <select id="genre" name="genre" required>
+            <option value="Dance">Dance</option>
+            <option value="Pop">Pop</option>
+            <option value="Rap">Rap</option>
+            <option value="Rock">Rock</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Classical">Classical</option>
+            <option value="Blues">Blues</option>
+          </select></p>
+          <p>Album title: <input type="text" id="albumTitle" name="albumTitle" required></p>
+          <p>Artist: <input type="text" id="artist" name="artist" required></p>
+          <p>Album publication year: <input type="number" id="publicationYear" name="publicationYear" required></p>
+
+          <p>Album image: <input type="file" id="imgFile" name="imgFile" accept="image/*"></p>
+          <p>MP3 file: <input type="file" id="songFile" name="songFile" accept="audio/*" required></p>
+          <p><input type="button" id="createSongButton" value="Add Song"></p>
+          <p class="error" id="songError"></p>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<div class="page-section" id="playlistPage">
+  <h2 id="playlistNameMessage"></h2>
+
+  <div id="playlistViewLayout">
+    <div id="playlistSongListColumn">
+      <div id="songListContainer">
+      </div>
+      <p id="songTableMessage"></p>
+      <p class="error" id="songTableError"></p>
+    </div>
+
+    <div id="playlistSongDetailsColumn">
+      <div id="songDetailsInlineContainer" style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <input type="button" class="action-button" id="goToSortingPageButton" value="Order Playlist">
+    <input type="button" id="beforeButton" value="&laquo; Previous">
+    <input type="button" id="nextButton" value="Next &raquo;">
+    <input type="button" class="nav-button" id="goToHomeFromPlaylist" value="Back to Home">
+  </div>
+
+  <div class="playlist-actions">
+    <div class="addSongToPlaylistDiv" id="addSongToPlaylistDiv">
+      <fieldset class="addSongToPlaylistFieldset" id="addSongToPlaylistFieldset">
+        <legend>Add Songs to this Playlist</legend>
+        <form id="addSongToPLayListForm" action="#">
+          <p>Select songs to add:</p>
+          <div id="songSelectionContainer" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- Songs will be populated here by JavaScript -->
+          </div>
+          <input type="button" id="addSongButton" value="Add Selected Songs">
+        </form>
+      </fieldset>
+      <p id="addSongMessage"></p>
+      <p class="error" id="addSongError"></p>
+    </div>
+  </div>
+</div>
+
+<div class="page-section" id="sortPlayListPage">
+  <h3 id="playlistToOrder"></h3>
+  <table class="sortPlayListTable" id="sortPlayListTable">
+    <thead>
+    <tr>
+      <th class="tableHeader">Song Name</th>
+    </tr>
+    </thead>
+    <tbody id="sortPLayListBody">
+    </tbody>
+  </table>
+  <div class="action-buttons-container">
+    <input type="button" id="confirmSortingButton" value="Save Order">
+    <input type="button" id="goToMainPageButton" value="Back to Home">
+  </div>
+  <p class="error" id="sortingError"></p>
+</div>
+
+</body>
+</html>

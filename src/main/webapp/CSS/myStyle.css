@@ -1,0 +1,631 @@
+/* --- Global Styles & Variables --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #1d2129;
+}
+
+/* --- Header Styles --- */
+.main-header {
+    background: linear-gradient(135deg, #3b5998 0%, #2c4377 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-header h1 {
+    background: none;
+    color: white;
+    padding: 20px 0 10px 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.error {
+    color: #d32f2f;
+    text-align: center;
+    font-weight: bold;
+    min-height: 1.2em; /* Evita salti di layout quando appare l'errore */
+}
+
+.error:empty {
+    display: none; /* Nasconde il paragrafo errore quando è vuoto */
+}
+
+/* --- Layout & Containers --- */
+.user-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+}
+
+.welcome-message {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.user-info-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.page-section {
+    display: none;
+    padding: 25px;
+    background-color: #ffffff;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.active-section {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Homepage Specific Layout --- */
+.home-columns-container {
+    display: flex;
+    flex-wrap: wrap; /* Permette alle colonne di andare a capo su schermi piccoli */
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.home-column {
+    flex: 1 1 400px; /* Base flessibile, permette crescita e restringimento */
+    min-width: 320px; /* Larghezza minima prima di andare a capo */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.home-column h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #3b5998;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Forms, Buttons & Inputs --- */
+fieldset {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: left;
+}
+
+fieldset legend {
+    font-weight: bold;
+    padding: 0 10px;
+    margin-left: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    display: block;
+}
+
+/* General Button Styling */
+input[type="button"], button {
+    background-color: #3b5998; /* Blu come login/registrazione */
+    border: none;
+    color: white;
+    padding: 8px 16px; /* Reduced padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Reduced font size */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+input[type="button"]:hover, button:hover {
+    background-color: #324a80; /* Hover più scuro */
+}
+
+/* Styles for action buttons if they need to be distinct */
+.action-button {
+    padding: 6px 12px; /* Slightly smaller for specific actions */
+    font-size: 13px;
+}
+
+.logout a {
+    text-decoration: none;
+    background-color: #6c757d; /* Grigio per logout */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logout a:hover {
+    background-color: #5a6268; /* Grigio più scuro al hover */
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+thead th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.songTable img {
+    max-width: 60px;
+    border-radius: 4px;
+}
+
+/* --- Component Specifics --- */
+.navigation-buttons {
+    margin: 20px 0;
+    display: flex; /* Added for alignment of Order, Prev, Next */
+    justify-content: center; /* Center the group of buttons */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add space between buttons */
+}
+
+.navigation-buttons input[type="button"] {
+    width: auto; /* Non a larghezza piena per i bottoni di navigazione */
+    background-color: #3b5998; /* Blu come login/registrazione */
+}
+.navigation-buttons input[type="button"]:hover {
+    background-color: #324a80; /* Hover più scuro */
+}
+
+.playlist-actions, .action-buttons-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.action-buttons-container input[type="button"]{
+    width: auto;
+    margin: 0 10px;
+}
+
+#confirmSortingButton {
+    background-color: #3b5998; /* Blu come login/registrazione */
+}
+#confirmSortingButton:hover {
+    background-color: #324a80; /* Hover più scuro */
+}
+
+#goToMainPageButton {
+    background-color: #3b5998; /* Blu come login/registrazione */
+}
+#goToMainPageButton:hover {
+    background-color: #324a80; /* Hover più scuro */
+}
+
+/* Stile per drag & drop */
+.sortPlayListTable td {
+    cursor: grab;
+}
+.sortPlayListTable td:active {
+    cursor: grabbing;
+}
+
+/* Playlist Page Specific Styles */
+#playlistPage {
+    /* Styles for the overall playlist page container if needed */
+}
+
+/* Song List Container (was songTableBody) */
+#songListContainer { /* New ID for the div replacing songTableBody */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 15px; /* Space between song items */
+    padding: 10px 0;
+    justify-content: center; /* Changed from flex-start to center */
+    min-height: 100px; /* Ensure it has some height even when empty */
+}
+
+.song-item {
+    width: 120px; /* Fixed width for each song item */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.song-item:hover {
+    background-color: #e9e9e9;
+}
+
+.song-item img {
+    width: 80px; /* Size of the album cover */
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border-radius: 3px;
+}
+
+.song-item .song-title {
+    font-size: 13px;
+    color: #333;
+    word-wrap: break-word; /* Ensure long titles wrap */
+    max-height: 3em; /* Limit title height to roughly 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines for WebKit browsers */
+    -webkit-box-orient: vertical;
+}
+
+/* Inline Song Details Container - Modified to match HTML version */
+#songDetailsInlineContainer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0; /* Remove padding to match HTML version */
+    border: none; /* Remove border to match HTML version */
+    border-radius: 0; /* Remove border radius */
+    background-color: transparent; /* Remove background to match HTML version */
+    /* display: none; is handled by JS or parent column visibility */
+    /* max-height and overflow-y are on the parent #playlistSongDetailsColumn */
+}
+
+#songDetailsInlineContainer h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Styles for the song metadata list (ensure these are still appropriate) */
+.song-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-details-list li {
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+}
+
+.song-details-list li:last-child {
+    border-bottom: none;
+}
+
+.song-details-list li strong {
+    color: #555;
+    margin-right: 15px;
+}
+
+.song-details-list li span {
+    text-align: right;
+    color: #1d2129;
+    font-weight: 500;
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Modern browsers */
+    max-width: 150px; /* Limit width to prevent overflow */
+}
+
+/* Album cover and audio player in details */
+.album-cover-details {
+    width: 160px;  /* New smaller width */
+    height: 160px; /* New smaller height */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between image and audio player */
+    border: 1px solid #eee; /* Optional subtle border */
+    /* display: block; and margin: 15px auto; removed as parent is flex */
+}
+
+.audio-player-details {
+    width: 100%; /* Make audio player take full width of its column */
+    max-width: 200px; /* Optional: prevent it from becoming too wide if column is flexible */
+    /* margin-top: 15px; Removed, handled by parent flex gap or margin on image */
+}
+
+.detail-message {
+    text-align: center;
+    color: #777;
+    margin: 10px 0;
+    font-size: 13px; /* Added from new prompt */
+}
+
+/* Ensure addSongToPlaylistDiv is visible and styled appropriately */
+.addSongToPlaylistDiv {
+    margin-top: 20px; /* Space above the add song form */
+}
+
+/* --- Playlist Page Two-Column Layout --- */
+#playlistViewLayout {
+    display: flex;
+    flex-wrap: wrap; /* Allow details to wrap below list on very small screens */
+    gap: 15px; /* Reduced from 20px to save space */
+    margin-bottom: 20px; /* Space before navigation buttons */
+    width: 100%;
+    max-width: 100%; /* Ensure it doesn't exceed viewport */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    box-sizing: border-box;
+}
+
+#playlistSongListColumn {
+    flex-grow: 1; 
+    flex-basis: 100%; /* Initially takes full width */
+    min-width: 300px; 
+    transition: flex-basis 0.3s ease-in-out; /* Smooth transition */
+}
+
+#playlistSongDetailsColumn {
+    display: none; /* Hidden by default */
+    flex-grow: 0;  /* Does not grow initially */
+    flex-shrink: 0; /* Does not shrink initially */
+    flex-basis: 0%;   /* Initially no width */
+    min-width: 250px; /* Reduced from 300px to prevent overflow */
+    transition: flex-basis 0.3s ease-in-out, display 0s 0.3s; /* Delay display change until after transition */
+    max-height: 75vh; /* Example max height */
+    overflow-y: auto; /* Scroll if content overflows vertically */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    box-sizing: border-box;
+}
+
+/* When song details are active */
+#playlistPage.details-active #playlistSongListColumn {
+    flex-basis: 30%; /* Reduced from 60% to 30% to give more space to details */
+    flex-grow: 1; 
+}
+
+#playlistPage.details-active #playlistSongDetailsColumn {
+    display: block; /* Or flex, if its children need flex layout */
+    flex-basis: 70%; /* Increased from 40% to give more space like HTML version */
+    flex-grow: 1; 
+    transition: flex-basis 0.3s ease-in-out, display 0s 0s; /* Display immediately */
+}
+
+/* --- Song Details Panel Layout (within #songDetailsInlineContainer) --- */
+/* #songDetailsInlineContainer padding is already defined above */
+
+/* Song Page Specific Styles - NO HORIZONTAL SCROLL */
+.song-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Reduced from 30px to save space */
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px; /* Reduced from 20px to save space */
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.song-media-column {
+    flex: 1 1 200px; /* Reduced min-width from 250px to 200px */
+    max-width: 250px; /* Reduced from 400px to fit better */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.song-details-album-art {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 15px; /* Reduced from 20px */
+    max-width: 200px; /* Reduced from 250px to prevent overflow */
+}
+
+.song-details-album-art.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.song-details-audio-player {
+    width: 100%;
+}
+
+.song-metadata-column {
+    flex: 2 1 250px; /* Reduced min-width from 300px to 250px */
+    min-width: 200px; /* Further reduced to prevent overflow */
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+.song-metadata-column h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #3b5998;
+    padding-bottom: 10px;
+}
+
+/* Legacy layout for backwards compatibility */
+.song-details-layout {
+    display: flex;
+    gap: 20px; /* Space between the metadata column and the media column */
+}
+
+.song-details-meta-column {
+    flex: 1; /* Allows this column to take up remaining space */
+    min-width: 0; /* Prevents overflow issues with flex items */
+}
+
+.song-details-meta-column h4 {
+    margin-top: 0; /* Adjust as needed */
+    /* Already styled by #songDetailsInlineContainer h4 */
+}
+
+.song-details-media-column {
+    flex-basis: 180px; /* Adjust width for the image/player column as desired */
+    flex-shrink: 0; /* Prevent this column from shrinking */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items if the column is wider than content */
+}
+
+.addSongToPlaylistFieldset {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+.addSongToPlaylistFieldset legend {
+    font-weight: bold;
+    color: #333;
+}
+
+/* --- Login & Registration Pages --- */
+.auth-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.auth-container h1 {
+    background: none;
+    color: #1d2129;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    color: #606770;
+    margin-bottom: 25px;
+}
+
+.auth-container fieldset {
+    border: none;
+    padding: 0;
+}
+
+.auth-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.auth-container input[type="submit"],
+.auth-container input[type="button"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#loginButton, #registrationButton {
+    background-color: #3b5998;
+    color: white;
+}
+
+#loginButton:hover, #registrationButton:hover {
+    background-color: #324a80;
+}
+
+.auth-switch {
+    margin-top: 25px;
+    font-size: 0.9em;
+}
+
+.auth-switch a {
+    color: #3b5998;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}

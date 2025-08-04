@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0" metadata-complete="false">
+    <!-- Database connection parameters -->
+    <context-param>
+        <param-name>dbDriver</param-name>
+        <param-value>org.mariadb.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbUrl</param-name>
+        <param-value>jdbc:mariadb://localhost:3306/PlaylistDB</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>angel</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>smanettone22</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>image.location</param-name>
+        <param-value>C:/Users/angel/Documents/dati_musica_TIW/Song_images/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mp3.location</param-name>
+        <param-value>C:/Users/angel/Documents/dati_musica_TIW/Song_audio/</param-value>
+    </context-param>
+
+    <!-- Filter configuration -->
+    <filter>
+        <filter-name>LoginChecker</filter-name>
+        <filter-class>it.polimi.tiw.progetto_tiw_js.filters.LoginChecker</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/GetPlaylistList</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/GetSongsInPLaylist</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/GetSongsNotInPlaylist</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/GetUserSongsServlet</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/GetSongDetails</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/CreatePlaylist</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/CreateSong</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/AddSong</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/AddSorting</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LoginChecker</filter-name>
+        <url-pattern>/HTML/HomePage.html</url-pattern>
+    </filter-mapping>
+
+    <!-- Error page configuration -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/HTML/ErrorPage.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/HTML/ErrorPage.html</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/HTML/ErrorPage.html</location>
+    </error-page>
+</web-app>
